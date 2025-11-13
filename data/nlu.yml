@@ -61,6 +61,7 @@ nlu:
       - that's wrong
       - absolutely not
       - no way
+      - not at all
       
 
   - intent: book_room

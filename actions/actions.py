@@ -1,3 +1,4 @@
+from pdb import Restart
 from typing import Any, Text, Dict, List
 from rasa_sdk import Action, Tracker
 from rasa_sdk.executor import CollectingDispatcher
@@ -28,4 +29,27 @@ class ActionConfirmBooking(Action):
         dispatcher.utter_message(text=confirmation_message)
         
         return []
+    
+class ActionRestartWithGreeting(Action):
+    def name(self) -> Text:
+        return "action_restart_with_greeting"
+
+    async def run(self, dispatcher: CollectingDispatcher,
+                  tracker: Tracker,
+                  domain: Dict[Text, Any]) -> List[Dict[Text, Any]]:
+        
+        # Show apology and greeting
+        dispatcher.utter_message(text="I apologize for the error. Let's start over with your booking details.")
+        dispatcher.utter_message(text="How can I assist you with your booking today?")
+        
+        # Clear all slots and restart
+        return [
+            SlotSet("name", None),
+            SlotSet("check_in_date", None),
+            SlotSet("check_out_date", None),
+            SlotSet("num_guests", None),
+            SlotSet("breakfast_option", None),
+            SlotSet("payment_method", None),
+            Restart()
+        ]
     

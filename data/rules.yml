@@ -11,3 +11,16 @@ rules:
     - intent: greet
     - action: utter_greet
 
+  - rule: Handle wrong booking confirmation
+    steps:
+    - action: action_confirm_booking
+    - intent: deny
+    - action: action_restart_with_greeting
+    
+
+  - rule: Handle correct booking confirmation
+    steps:
+    - action: action_confirm_booking
+    - intent: affirm
+    - action: utter_booking_complete
+

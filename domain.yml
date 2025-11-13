@@ -82,7 +82,7 @@ responses:
     - text: "Thank you {name}! I've noted your booking from {check_in_date} to {check_out_date} for {num_guests} guest(s) with breakfast {breakfast_option}. Payment method: {payment_method}. Is this information correct?(Correct/Wrong)"
 
   utter_booking_wrong:
-  - text: "I apologize for the error. Let's start over with your booking details."
+    - text: "I apologize for the error. Let's start over with your booking details."
 
   utter_booking_complete:
     - text: "Great! Your booking at Pride Of Bengal is confirmed. We look forward to hosting you! Note : Check in time 11 am and check out time 10 am. Please contact the recepton for any assistance."
@@ -95,6 +95,7 @@ responses:
 
 actions:
   - action_confirm_booking
+  - action_restart_with_greeting
   #- action_restart
 
 session_config:

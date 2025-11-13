@@ -84,3 +84,16 @@ stories:
     - action: action_confirm_booking
     - intent: affirm
     - action: utter_booking_complete
+
+  - story: Handle wrong booking information
+    steps:
+     - action: action_confirm_booking
+     - intent: deny
+     - action: action_restart_with_greeting
+     
+
+  - story: Complete booking with correct confirmation
+    steps:
+    - action: action_confirm_booking
+    - intent: affirm
+    - action: utter_booking_complete
