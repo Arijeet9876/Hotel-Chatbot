@@ -24,3 +24,13 @@ rules:
     - intent: affirm
     - action: utter_booking_complete
 
+  - rule: Handle simple yes for breakfast
+    steps:
+    - intent: affirm
+    - action: utter_ask_payment
+
+  - rule: Handle simple no for breakfast
+    steps:
+    - intent: deny
+    - action: utter_ask_payment
+
