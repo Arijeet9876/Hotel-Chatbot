@@ -34,7 +34,7 @@ pip install -r requirements.txt
 # 4. Train the AI model
 rasa train
 
-# Run the complete system
+# 5. Run the complete system
 # Terminal 1: Action server
 rasa run actions
 
@@ -44,5 +44,5 @@ rasa run --cors "*" --port 5005
 # Terminal 3: Web interface
 python app.py
 
-#run the chatbot  
+# 6.run the chatbot  
 http://127.0.0.1:5000
