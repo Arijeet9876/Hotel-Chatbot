@@ -45,4 +45,4 @@ rasa run --cors "*" --port 5005
 python app.py
 
 #run the chatbot  
-http://localhost:5000
+http://127.0.0.1:5000
