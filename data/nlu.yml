@@ -1,0 +1,172 @@
+version: "3.1"
+
+nlu:
+  - intent: greet
+    examples: |
+      - hey
+      - hello
+      - hi
+      - good morning
+      - good evening
+      - hey there
+
+  - intent: goodbye
+    examples: |
+      - bye
+      - goodbye
+      - see you
+      - thank you bye
+      - thanks bye
+      - thanks
+      - see you
+      - talk to you later
+      - catch you later
+      - have a nice day
+      - have a great day
+
+  - intent: affirm
+    examples: |
+      - yes
+      - yep
+      - yeah
+      - correct
+      - that's right
+      - right
+      - confirmed
+      - perfect
+      - okay
+      - sure
+      - absolutely
+      - correct that's right
+      - yes correct
+      - that's correct
+      - it's correct
+      - indeed
+      - certainly
+      - of course
+
+  - intent: deny
+    examples: |
+      - no
+      - nope
+      - no thanks
+      - wrong
+      - don't
+      - not really
+      - negative
+      - never
+      - I don't think so
+      - I disagree
+      - that's incorrect
+      - that's wrong
+      - absolutely not
+      - no way
+      
+
+  - intent: book_room
+    examples: |
+      - I want to book a room
+      - I'd like to make a reservation
+      - book a hotel room
+      - make a booking
+      - room reservation
+      - I need a room
+      - reserve a room
+      - can I book a room
+      - I'd like to book a room
+      - I want to reserve a room
+      
+
+  - intent: provide_name
+    examples: |
+          - [John](name)
+          - [Sarah](name)
+          - [Mike](name)
+          - [David](name)
+          - [Lisa](name)
+          - [Alex](name)
+          - [Maria](name)
+          - [Tom](name)
+          - [Jessica](name)
+          - [Kevin](name)
+          - [Arijeet](name)
+          - my name is [John](name)
+          - I am [Sarah](name)
+          - call me [Mike](name)
+          - it's [David](name)
+          - I'm [Lisa](name)
+          - this is [Alex](name)
+          - you can call me [Maria](name)
+          - please call me [Tom](name)
+          - they call me [Jessica](name)
+          - everyone knows me as [Kevin](name)
+          - friends call me [Arijeet](name)
+          
+
+  - intent: provide_dates
+    examples: |
+      - from [15-01-2024](check_in_date) to [20-01-2024](check_out_date)
+      - [January 15](check_in_date) to [January 20](check_out_date)
+      - check in [15th Jan](check_in_date) check out [20th Jan](check_out_date)
+      - [tomorrow](check_in_date) to [Sunday](check_out_date)
+      - I will arrive on [2024-01-15](check_in_date) and leave on [2024-01-20](check_out_date)
+      - my check-in date is [15-01-2024](check_in_date) and check-out date is [20-01-2024](check_out_date)
+      - booking from [15th January](check_in_date) to [20th January](check_out_date)
+      - stay from [15/01/2024](check_in_date) until [20/01/2024](check_out_date)
+      - I want to book from [15 Jan](check_in_date) to [20 Jan](check_out_date)
+      - reservation for [15-01-2024](check_in_date) till [20-01-2024](check_out_date)
+
+
+  - intent: provide_guests
+    examples: |
+      - [2](num_guests) guests
+      - [1](num_guests) person
+      - [3](num_guests) people
+      - just me
+      - [4](num_guests) adults
+      - we are [2](num_guests)
+      - booking for [5](num_guests)
+      - there will be [2](num_guests) of us
+      - I need a room for [3](num_guests)
+      - reserve for [1](num_guests)
+
+  - intent: ask_breakfast
+    examples: |
+      - [yes](breakfast_option) with breakfast
+      - [no](breakfast_option) without breakfast
+      - include breakfast [yes](breakfast_option)
+      - breakfast [no](breakfast_option)
+      - [yes](breakfast_option)
+      - [no](breakfast_option)
+      - I want breakfast [yes](breakfast_option)
+      - I don't want breakfast [no](breakfast_option)
+      - add breakfast [yes](breakfast_option)
+      - skip breakfast [no](breakfast_option)
+
+  - intent: ask_payment
+    examples: |
+      - [credit card](payment_method)
+      - pay by [debit card](payment_method)
+      - [cash](payment_method) on arrival
+      - [credit card](payment_method) payment
+      - I'll pay with [cash](payment_method)
+      - use my [debit card](payment_method)
+      - payment via [credit card](payment_method)
+      - I prefer [cash](payment_method)
+      - pay using [debit card](payment_method)
+      - I'll use [credit card](payment_method)
+
+  - intent: bot_challenge
+    examples: |
+      - are you a bot?
+      - are you a human?
+      - am I talking to a bot?
+      - am I talking to a human?
+      - what are you?
+      - are you real?
+      - are you a robot?
+      - tell me about yourself
+      - who are you?
+      - identify yourself
+
+  

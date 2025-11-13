@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Pride Of Bengal Hotel</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 20px;
+            background-color: #81d4a4da;
+        }
+        .header {
+            text-align: center;
+            background: rgb(193, 234, 14);
+            padding: 20px;
+            border-radius: 10px;
+            margin-bottom: 20px;
+        }
+        .chat-container {
+            max-width: 600px;
+            margin: 0 auto;
+            background: rgba(15, 199, 208, 0.615);
+            border-radius: 10px;
+            padding: 20px;
+        }
+        .messages {
+            height: 400px;
+            overflow-y: auto;
+            border: 1px solid #1192b9;
+            padding: 10px;
+            margin-bottom: 10px;
+        }
+        .message {
+            margin: 10px 0;
+            padding: 10px;
+            border-radius: 5px;
+        }
+        .user-message {
+            background: #07f696;
+            color: rgb(18, 22, 51);
+            text-align: right;
+        }
+        .bot-message {
+            background: #0a91eb;
+            color: rgb(11, 5, 11);
+            text-align: left;
+        }
+        .input-container {
+            display: flex;
+            gap: 10px;
+        }
+        input {
+            flex: 1;
+            padding: 10px;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+        }
+        button {
+            padding: 10px 20px;
+            background: #b40eca;
+            color: rgb(252, 249, 249);
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+    </style>
+</head>
+<body>
+    <div class="header">
+        <h1>🏩 Pride Of Bengal Hotel 🏩</h1>
+        <p>🤖 Book your stay with our AI assistant 🤖</p>
+    </div>
+
+    <div class="chat-container">
+        <div class="messages" id="messages">
+            <div class="message bot-message">
+                Welcome to Pride Of Bengal Hotel! How can I help you today? 🔔
+            </div>
+        </div>
+        
+        <div class="input-container">
+            <input type="text" id="userInput" placeholder="Type your message here...">
+            <button onclick="sendMessage()">Send</button>
+        </div>
+    </div>
+
+    <script>
+        function addMessage(text, isUser) {
+            const messages = document.getElementById('messages');
+            const messageDiv = document.createElement('div');
+            messageDiv.className = isUser ? 'message user-message' : 'message bot-message';
+            messageDiv.textContent = text;
+            messages.appendChild(messageDiv);
+            messages.scrollTop = messages.scrollHeight;
+        }
+
+        async function sendMessage() {
+            const input = document.getElementById('userInput');
+            const message = input.value.trim();
+            
+            if (!message) return;
+            
+            // Add user message
+            addMessage(message, true);
+            input.value = '';
+            
+            try {
+                const response = await fetch('/webhook', {
+                    method: 'POST',
+                    headers: {
+                        'Content-Type': 'application/json',
+                    },
+                    body: JSON.stringify({ message: message })
+                });
+                
+                const data = await response.json();
+                
+                if (data.responses) {
+                    data.responses.forEach(botMessage => {
+                        addMessage(botMessage, false);
+                    });
+                }
+            } catch (error) {
+                addMessage('Sorry, I cannot connect to the server right now.', false);
+            }
+        }
+
+        // Send message when Enter key is pressed
+        document.getElementById('userInput').addEventListener('keypress', function(e) {
+            if (e.key === 'Enter') {
+                sendMessage();
+            }
+        });
+    </script>
+</body>
+</html>

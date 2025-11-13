@@ -1,0 +1,86 @@
+version: "3.1"
+
+stories:
+  - story: Happy path for room booking
+    steps:
+    - intent: greet
+    - action: utter_greet
+    - intent: book_room
+    - action: utter_ask_name
+    - intent: provide_name
+      entities:
+      - name: "John"
+    - slot_was_set:
+      - name: "John"
+    - action: utter_ask_dates
+    - intent: provide_dates
+      entities:
+      - check_in_date: "2024-01-15"
+      - check_out_date: "2024-01-20"
+    - slot_was_set:
+      - check_in_date: "2024-01-15"
+      - check_out_date: "2024-01-20"
+    - action: utter_ask_guests
+    - intent: provide_guests
+      entities:
+      - num_guests: "2"
+    - slot_was_set:
+      - num_guests: "2"
+    - action: utter_ask_breakfast
+    - intent: ask_breakfast
+      entities:
+      - breakfast_option: "yes"
+    - slot_was_set:
+      - breakfast_option: "yes"
+    - action: utter_ask_payment
+    - intent: ask_payment
+      entities:
+      - payment_method: "credit card"
+    - slot_was_set:
+      - payment_method: "credit card"
+    
+    - action: action_confirm_booking
+    - intent: affirm
+    - action: utter_booking_complete
+
+  - story: Booking without amenities info
+    steps:
+    - intent: greet
+    - action: utter_greet
+    - intent: book_room
+    - action: utter_ask_name
+    - intent: provide_name
+      entities:
+      - name: "Sarah"
+    - slot_was_set:
+      - name: "Sarah"
+    - action: utter_ask_dates
+    - intent: provide_dates
+      entities:
+      - check_in_date: "2024-02-01"
+      - check_out_date: "2024-02-05"
+    - slot_was_set:
+      - check_in_date: "2024-02-01"
+      - check_out_date: "2024-02-05"
+    - action: utter_ask_guests
+    - intent: provide_guests
+      entities:
+      - num_guests: "1"
+    - slot_was_set:
+      - num_guests: "1"
+    - action: utter_ask_breakfast
+    - intent: ask_breakfast
+      entities:
+      - breakfast_option: "no"
+    - slot_was_set:
+      - breakfast_option: "no"
+    - action: utter_ask_payment
+    - intent: ask_payment
+      entities:
+      - payment_method: "cash"
+    - slot_was_set:
+      - payment_method: "cash"
+
+    - action: action_confirm_booking
+    - intent: affirm
+    - action: utter_booking_complete

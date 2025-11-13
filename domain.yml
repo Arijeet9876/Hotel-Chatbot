@@ -1,0 +1,102 @@
+version: "3.1"
+
+intents:
+  - greet
+  - goodbye
+  - affirm
+  - deny
+  - book_room
+  - provide_name
+  - provide_dates
+  - provide_guests
+  - ask_breakfast
+  - ask_payment
+  - bot_challenge
+
+entities:
+  - name
+  - check_in_date
+  - check_out_date
+  - num_guests
+  - breakfast_option
+  - payment_method
+
+slots:
+  name:
+    type: text
+    influence_conversation: true
+    mappings:
+    - type: from_entity
+      entity: name
+  check_in_date:
+    type: text
+    influence_conversation: true
+    mappings:
+    - type: from_entity
+      entity: check_in_date
+  check_out_date:
+    type: text
+    influence_conversation: true
+    mappings:
+    - type: from_entity
+      entity: check_out_date
+  num_guests:
+    type: text
+    influence_conversation: true
+    mappings:
+    - type: from_entity
+      entity: num_guests
+  breakfast_option:
+    type: text
+    influence_conversation: true
+    mappings:
+    - type: from_entity
+      entity: breakfast_option
+  payment_method:
+    type: text
+    influence_conversation: true
+    mappings:
+    - type: from_entity
+      entity: payment_method
+
+responses:
+  utter_greet:
+    - text: "Welcome to Pride Of Bengal Hotel! How can I assist you with your booking today?"
+  
+  utter_ask_name:
+    - text: "May I have your name please?"
+  
+  utter_ask_dates:
+    - text: "What are your check-in and check-out dates? (Please provide in format: dd-mm-yyyy to dd-mm-yyyy)"
+  
+  utter_ask_guests:
+    - text: "How many guests will be staying?"
+  
+  utter_ask_breakfast:
+    - text: "Would you like to include breakfast in your booking? (yes/no)"
+  
+  utter_ask_payment:
+    - text: "Great, Your Room's price is 100 Euro. What payment method would you prefer? We accept credit card, debit card, or cash on arrival."
+  
+  utter_confirm_booking:
+    - text: "Thank you {name}! I've noted your booking from {check_in_date} to {check_out_date} for {num_guests} guest(s) with breakfast {breakfast_option}. Payment method: {payment_method}. Is this information correct?(Correct/Wrong)"
+
+  utter_booking_wrong:
+  - text: "I apologize for the error. Let's start over with your booking details."
+
+  utter_booking_complete:
+    - text: "Great! Your booking at Pride Of Bengal is confirmed. We look forward to hosting you! Note : Check in time 11 am and check out time 10 am. Please contact the recepton for any assistance."
+  
+  utter_goodbye:
+    - text: "Thank you for choosing Pride Of Bengal! Have a wonderful day!"
+
+  utter_iamabot: 
+    - text: "I am a chatbot designed to help you book rooms at Pride Of Bengal Hotel."
+
+actions:
+  - action_confirm_booking
+  #- action_restart
+
+session_config:
+  session_expiration_time: 60
+  carry_over_slots_to_new_session: true
