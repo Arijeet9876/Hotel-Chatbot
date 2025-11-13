@@ -67,7 +67,7 @@ responses:
     - text: "May I have your name please?"
   
   utter_ask_dates:
-    - text: "What are your check-in and check-out dates? (Please provide in format: dd-mm-yyyy to dd-mm-yyyy)"
+    - text: "What are your check-in and check-out dates? (Please provide in format: DD-MM-YYYY to DD-MM-YYYY)"
   
   utter_ask_guests:
     - text: "How many guests will be staying?"

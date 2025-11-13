@@ -105,16 +105,19 @@ nlu:
 
   - intent: provide_dates
     examples: |
-      - from [15-01-2024](check_in_date) to [20-01-2024](check_out_date)
-      - [January 15](check_in_date) to [January 20](check_out_date)
-      - check in [15th Jan](check_in_date) check out [20th Jan](check_out_date)
-      - [tomorrow](check_in_date) to [Sunday](check_out_date)
-      - I will arrive on [2024-01-15](check_in_date) and leave on [2024-01-20](check_out_date)
-      - my check-in date is [15-01-2024](check_in_date) and check-out date is [20-01-2024](check_out_date)
-      - booking from [15th January](check_in_date) to [20th January](check_out_date)
-      - stay from [15/01/2024](check_in_date) until [20/01/2024](check_out_date)
-      - I want to book from [15 Jan](check_in_date) to [20 Jan](check_out_date)
-      - reservation for [15-01-2024](check_in_date) till [20-01-2024](check_out_date)
+        - [14-01-2026](check_in_date) to [18-01-2026](check_out_date)
+        - from [15-12-2025](check_in_date) to [17-12-2025](check_out_date)
+        - [10-11-2026](check_in_date) to [12-11-2026](check_out_date)
+        - [20-03-2026](check_in_date) to [25-03-2026](check_out_date)
+        - check in [05-06-2026](check_in_date) check out [08-06-2026](check_out_date)
+        - [01-01-2026](check_in_date) until [05-01-2026](check_out_date)
+        - [14/01/2026](check_in_date) to [18/01/2026](check_out_date)
+        - [January 14](check_in_date) to [January 18](check_out_date)
+        - [14th January](check_in_date) to [18th January](check_out_date)
+        - from [March 10](check_in_date) to [March 12](check_out_date)
+        - I will check in on [20-07-2026](check_in_date) and check out on [25-07-2026](check_out_date)
+        - my stay is from [12-09-2026](check_in_date) to [15-09-2026](check_out_date) 
+  
 
 
   - intent: provide_guests
