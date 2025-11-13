@@ -61,7 +61,7 @@ slots:
 
 responses:
   utter_greet:
-    - text: "Welcome to Pride Of Bengal Hotel! How can I assist you with your booking today?"
+    - text: "How can I assist you with your booking today?"
   
   utter_ask_name:
     - text: "May I have your name please?"
