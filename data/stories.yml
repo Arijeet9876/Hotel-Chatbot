@@ -6,20 +6,20 @@ stories:
     - intent: greet
     - action: utter_greet
     - intent: book_room
-    - action: utter_ask_name
-    - intent: provide_name
-      entities:
-      - name: "John"
-    - slot_was_set:
-      - name: "John"
+    # - action: utter_ask_name
+    # - intent: provide_name
+    #   entities:
+    #   - name: "John"
+    # - slot_was_set:
+    #   - name: "John"
     - action: utter_ask_dates
     - intent: provide_dates
       entities:
-      - check_in_date: "2024-01-15"
-      - check_out_date: "2024-01-20"
+      - check_in_date: "15-01-2026"
+      - check_out_date: "20-01-2026"
     - slot_was_set:
-      - check_in_date: "2024-01-15"
-      - check_out_date: "2024-01-20"
+      - check_in_date: "15-01-2026"
+      - check_out_date: "20-01-2026"
     - action: utter_ask_guests
     - intent: provide_guests
       entities:
@@ -48,20 +48,20 @@ stories:
     - intent: greet
     - action: utter_greet
     - intent: book_room
-    - action: utter_ask_name
-    - intent: provide_name
-      entities:
-      - name: "Sarah"
-    - slot_was_set:
-      - name: "Sarah"
+    # - action: utter_ask_name
+    # - intent: provide_name
+    #   entities:
+    #   - name: "Sarah"
+    # - slot_was_set:
+    #   - name: "Sarah"
     - action: utter_ask_dates
     - intent: provide_dates
       entities:
-      - check_in_date: "2024-02-01"
-      - check_out_date: "2024-02-05"
+      - check_in_date: "01-02-2026"
+      - check_out_date: "05-02-2026"
     - slot_was_set:
-      - check_in_date: "2024-02-01"
-      - check_out_date: "2024-02-05"
+      - check_in_date: "01-02-2026"
+      - check_out_date: "05-02-2026"
     - action: utter_ask_guests
     - intent: provide_guests
       entities:

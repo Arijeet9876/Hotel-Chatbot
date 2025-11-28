@@ -3,6 +3,7 @@ from typing import Any, Text, Dict, List
 from rasa_sdk import Action, Tracker
 from rasa_sdk.executor import CollectingDispatcher
 from rasa_sdk.events import SlotSet
+# import uuid
 
 class ActionConfirmBooking(Action):
     def name(self) -> Text:
@@ -12,14 +13,17 @@ class ActionConfirmBooking(Action):
             tracker: Tracker,
             domain: Dict[Text, Any]) -> List[Dict[Text, Any]]:
         
-        name = tracker.get_slot("name")
+        # booking_id = str(uuid.uuid4())[:8]
+        # dispatcher.utter_message(text=f"Your booking ID is {booking_id}. Please keep it for your reference.")
+
+        # name = tracker.get_slot("name")
         check_in_date = tracker.get_slot("check_in_date")
         check_out_date = tracker.get_slot("check_out_date")
         num_guests = tracker.get_slot("num_guests")
         breakfast_option = tracker.get_slot("breakfast_option")
         payment_method = tracker.get_slot("payment_method")
         
-        confirmation_message = f"Thank you {name}! I've noted your booking:\n"
+        confirmation_message = f"Thank you! I've noted your booking:\n"
         confirmation_message += f"• Dates: {check_in_date} to {check_out_date}\n"
         confirmation_message += f"• Guests: {num_guests}\n"
         confirmation_message += f"• Breakfast: {breakfast_option}\n"
@@ -27,8 +31,8 @@ class ActionConfirmBooking(Action):
         confirmation_message += "Is this information correct?(Correct/Wrong)"
         
         dispatcher.utter_message(text=confirmation_message)
-        
-        return []
+        return[]
+        # return [SlotSet("booking_id", booking_id)]
     
 class ActionRestartWithGreeting(Action):
     def name(self) -> Text:
@@ -44,12 +48,13 @@ class ActionRestartWithGreeting(Action):
         
         # Clear all slots and restart
         return [
-            SlotSet("name", None),
+            # SlotSet("name", None),
             SlotSet("check_in_date", None),
             SlotSet("check_out_date", None),
             SlotSet("num_guests", None),
             SlotSet("breakfast_option", None),
             SlotSet("payment_method", None),
+            # SlotSet("booking_id", None),
             Restart()
         ]
     

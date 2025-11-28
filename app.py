@@ -15,7 +15,8 @@ def webhook():
         # Send message to Rasa server
         rasa_response = requests.post(
             'http://localhost:5005/webhooks/rest/webhook',
-            json={"sender": "user", "message": user_message}
+            json={"sender": "user", "message": user_message},
+            timeout=5  # Set timeout to 5 seconds
         )
         
         if rasa_response.status_code == 200:

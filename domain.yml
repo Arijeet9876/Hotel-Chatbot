@@ -6,7 +6,7 @@ intents:
   - affirm
   - deny
   - book_room
-  - provide_name
+  # - provide_name
   - provide_dates
   - provide_guests
   - ask_breakfast
@@ -14,20 +14,21 @@ intents:
   - bot_challenge
 
 entities:
-  - name
+  # - name
   - check_in_date
   - check_out_date
   - num_guests
   - breakfast_option
   - payment_method
+  # - booking_id
 
 slots:
-  name:
-    type: text
-    influence_conversation: true
-    mappings:
-    - type: from_entity
-      entity: name
+  # name:
+  #   type: text
+  #   influence_conversation: true
+  #   mappings:
+  #   - type: from_entity
+  #     entity: name
   check_in_date:
     type: text
     influence_conversation: true
@@ -58,13 +59,17 @@ slots:
     mappings:
     - type: from_entity
       entity: payment_method
+  # booking_id:              
+  #   type: text
+  #   influence_conversation: false
+  #   mappings: []
 
 responses:
   utter_greet:
     - text: "How can I assist you with your booking today?"
-  
-  utter_ask_name:
-    - text: "May I have your name please?"
+      
+  # utter_ask_name:
+  #   - text: "May I have your name please?"
   
   utter_ask_dates:
     - text: "What are your check-in and check-out dates? (Please provide in format: DD-MM-YYYY to DD-MM-YYYY)"
@@ -79,7 +84,7 @@ responses:
     - text: "Great, Your Room's price is 100 Euro. What payment method would you prefer? We accept credit card, debit card, or cash on arrival."
   
   utter_confirm_booking:
-    - text: "Thank you {name}! I've noted your booking from {check_in_date} to {check_out_date} for {num_guests} guest(s) with breakfast {breakfast_option}. Payment method: {payment_method}. Is this information correct?(Correct/Wrong)"
+    - text: "Thank you! I've noted your booking from {check_in_date} to {check_out_date} for {num_guests} guest(s) with breakfast {breakfast_option}. Payment method: {payment_method}. Is this information correct?(Correct/Wrong)"
 
   utter_booking_wrong:
     - text: "I apologize for the error. Let's start over with your booking details."
