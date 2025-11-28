@@ -46,3 +46,6 @@ python app.py
 
 # 6.run the chatbot  
 http://127.0.0.1:5000
+
+# 7. Repository
+https://github.com/Arijeet9876/Hotel-Chatbot
